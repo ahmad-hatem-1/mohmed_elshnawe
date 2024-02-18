@@ -547,14 +547,14 @@ nav a:is(:first-child, :last-child):hover {
 margin: 150px auto;
 }
 .contact .container .parent_card {
- z-index: 100;
-display: flex;
+z-index: 100;
+display: flex ;
+flex-flow: row wrap;
 justify-content: center;
 align-items: center;
-flex-wrap: wrap;
-gap: 100px;
-position: relative;
+
 }
+
 .contact .container .parent_card .carde i {
     font-size: 90px;
     margin-bottom: 30px;
@@ -574,102 +574,49 @@ color: #25D366;
 color: green;
 }
 
-.contact .container .parent_card .carde .btn-1{
-    width: 150px;
-    height: 40px;
-    cursor: pointer;
-    position: absolute;
-    top: 80%;
-    right: 50%;
-    transform: translateX(50%);
-    transition: 0.3s;
-    opacity: 0;
-}
-.contact .container .parent_card .carde:hover button{
-opacity: 1;
-}
 
-@property --rotate {
-    syntax: "<angle>";
-    initial-value: 132deg;
-    inherits: false;
-  }
-  
-  .carde {
-    background: #191c29;
+
+.carde {
+    color: #ffffff;
     width: 300px;
-    max-width: 300px;
-    height:400px;
-    padding: 3px;
-    position: relative;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    font-size: 1.5em;
-    color: rgb(88 199 250 / 0%);
-    cursor: pointer;
-    transition: color 1s;
     border-radius: 20px;
+    padding: 5px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    transition:transform .3s;
+    margin-right: 50px;
   }
-  
+  @media (max-width : 768px){
+    .carde {
+        margin: 0;
+        margin-bottom: 20px;
+    }
+  }
   .carde:hover {
-    color: rgb(88 199 250 / 100%);
+    transform: scale(1.1);
   }
-  .carde:hover:before, .card:hover:after{
-    animation: none;
-    opacity: 0;
+  .carde h2 {
+    color: #fff;
   }
-  
-  
-  .carde::before {
-    content: "";
-    width: 104%;
-    height: 102%;
-    border-radius: 20px;
-    background-image: linear-gradient(
-      var(--rotate)
-      , #5ddcff, #3c67e3 43%, #4e00c2);
-      position: absolute;
-      z-index: -1;
-      top: -1%;
-      left: -2%;
-      animation: spin 2.5s linear infinite;
+  .card__content {
+    background: rgb(5, 6, 45);
+    border-radius: 17px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: column;
+    padding: 50px;
   }
-  
-  .carde::after {
-    position: absolute;
-    content: "";
-    top: calc(var(--card-height) / 6);
-    left: 0;
-    right: 0;
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-    margin: 0 auto;
-    transform: scale(0.8);
-    filter: blur(calc(var(--card-height) / 6));
-    background-image: linear-gradient(
-      var(--rotate)
-      , #5ddcff, var(--color-blue-open) 43%, var(--color-blue-open));
-      opacity: 1;
-    transition: opacity .5s;
-    animation: spin 2.5s linear infinite;
+  .card__content {
+    cursor: auto;
   }
-  
-  @keyframes spin {
-    0% {
-      --rotate: 0deg;
-    }
-    100% {
-      --rotate: 360deg;
-    }
-  }
+  .card__content button{
+    cursor: pointer;
+    width: 150px;
+    padding: 5px 0 ;
 
-  .carde:hover button{
-    opacity: 1;
-}
-
+  }
 .overlay::after {
     content: "";
     width: 100%;
